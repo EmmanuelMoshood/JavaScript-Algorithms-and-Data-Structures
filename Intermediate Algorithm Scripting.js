@@ -89,13 +89,13 @@ console.log(test2)
 
 
 /****************************************************** Wherefore art thou */
-//get 
-function whatIsInAName(collection, source) {
-    let sourceKeys = Object.keys(source);
 
-    return collection.filter(
-        item => sourceKeys.every(
-            key => item.hasOwnProperty(key) && item[key] === source[key]
+function whatIsInAName(collection, source) {
+    let sourceKeys = Object.keys(source); //stores all keys from source object in an array 
+
+    return collection.filter(//return only the objects with all the keys source has
+        item => sourceKeys.every(//check if the following callback is true for all the element in the array of elements in the array sourceKeys
+            key => item.hasOwnProperty(key) && item[key] === source[key] //checks if the current object in the loop from collection has "Key" as a property and if the value of that Key is same as "source[key]"
         )
     )
 }
