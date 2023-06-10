@@ -57,10 +57,17 @@ console.log(test);
 /****************************************************** Seek and Destroy */
 //get arguments passed and convert them to an array to work with
 //loop the mainArray checking if its elements donot exist in the "arrToDestroy" array
-//push the element that meet condition to a new array and return this result 
+//push the element that meet condition to a new array and return the result 
 
 const destroyer = (arr) => {
-    const arrayOfArguments = Array.from(arguments);
+    // let arrayOfArguments = Array.from(arguments);
+    
+
+    let arrayOfArguments = [];
+    for(let i=0; i<arguments.length; i++){
+        arrayOfArguments.push(arguments[i])
+    }
+    
     const mainArray = arrayOfArguments[0];
     const arrToDestroy = arrayOfArguments.splice(1);
     let newArray = [];
@@ -73,9 +80,25 @@ const destroyer = (arr) => {
 
 
 
-
     return newArray;
 }
   
 const test2 = destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 console.log(test2)
+
+
+
+/****************************************************** Wherefore art thou */
+//get 
+function whatIsInAName(collection, source) {
+    let sourceKeys = Object.keys(source);
+
+    return collection.filter(
+        item => sourceKeys.every(
+            key => item.hasOwnProperty(key) && item[key] === source[key]
+        )
+    )
+}
+
+const test = whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+console.log(test);
