@@ -48,5 +48,34 @@ const diffArray = (arr1, arr2) => {
     return newArr;
 }
 //test
-const test = diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
-console.log(test)
+const test1 = diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+console.log(test);
+
+
+
+
+/****************************************************** Seek and Destroy */
+//get arguments passed and convert them to an array to work with
+//loop the mainArray checking if its elements donot exist in the "arrToDestroy" array
+//push the element that meet condition to a new array and return this result 
+
+const destroyer = (arr) => {
+    const arrayOfArguments = Array.from(arguments);
+    const mainArray = arrayOfArguments[0];
+    const arrToDestroy = arrayOfArguments.splice(1);
+    let newArray = [];
+
+    for(let i=0; i<mainArray.length; i++){
+        if(mainArray.indexOf(arrToDestroy[i] === -1)){
+            newArray.push(arrToDestroy[i])
+        }
+    }
+
+
+
+
+    return newArray;
+}
+  
+const test2 = destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+console.log(test2)
